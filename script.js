@@ -69,12 +69,19 @@ function edit(a) {
 
         for (const x in array) {
             if (array[x].titulo == title.innerText && array[x].texto == text.innerText) {
-
-                let mesage_edited = {titulo: edit_title, texto: edit_text}
-
-                localStorage.setItem(`${tasks_index[x]}`,JSON.stringify(mesage_edited))
                 
-                break
+                for (let index = 0; index < tasks_index.length; index++) {
+                    if (`Task${array[x].numero}` == tasks_index[index]) {
+                        let mesage_edited = {titulo: edit_title, texto: edit_text, numero: array[x].numero}
+
+                        localStorage.setItem(`${tasks_index[index]}`,JSON.stringify(mesage_edited))
+                        
+                        break
+                    }
+                    
+                }
+
+               break
             }
         }
 
@@ -94,7 +101,12 @@ function remove(a) {
     for (const x2 in array) {
         if (array[x2].titulo == title.innerText && array[x2].texto == text.innerText) {
             
-            localStorage.removeItem(`${tasks_index[x2]}`)
+            for (let index = 0; index < tasks_index.length; index++){
+                if (`Task${array[x2].numero}` == tasks_index[index]) {
+                    localStorage.removeItem(`${tasks_index[index]}`)
+                    break
+                }
+            }
     
             break
         }
