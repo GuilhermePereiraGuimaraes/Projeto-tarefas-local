@@ -19,6 +19,9 @@ function pageCarregada() {
         }
     }
     if (array.length > 0) {
+        array.sort((a, b) => {
+            return a.numero - b.numero
+        })
         for (const num in array) {
             let parent = document.getElementsByClassName("tarefas")[0]
             let div_task = document.createElement("div")
@@ -133,8 +136,8 @@ function add_task() {
         parent.appendChild(div_task)
 
         // local storage
-        let mensagem = {titulo: task_h2.innerText, texto: task_p.innerText} 
         let m_count = Number(localStorage.getItem("Count_t"))+1
+        let mensagem = {titulo: task_h2.innerText, texto: task_p.innerText, numero: m_count} 
         localStorage.setItem("Count_t",m_count)
         localStorage.setItem(`Task${m_count}`, JSON.stringify(mensagem))
     }

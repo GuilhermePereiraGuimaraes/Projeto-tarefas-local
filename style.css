@@ -29,7 +29,6 @@ button{
     align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
-    flex-direction: row-reverse;
 }
 
 .tarefas .tarefa{
