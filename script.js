@@ -63,7 +63,7 @@ function edit(a) {
     let text =  a.target.parentElement.parentElement.children[1]
 
     let edit_title = String(window.prompt("Título"))
-    let edit_text = String(window.prompt("Texto"))
+    let edit_text = String(window.prompt("Descrição"))
 
     if (edit_text != "" && edit_text != "null" && edit_title != "" && edit_title != "null") {
 
@@ -135,7 +135,7 @@ function add_task() {
     btns.appendChild(editar)
     btns.appendChild(remover)
     let edit_title = String(window.prompt("Título"))
-    let edit_text = String(window.prompt("Texto"))
+    let edit_text = String(window.prompt("Descrição"))
 
     if (edit_text != "" && edit_text != "null" && edit_title != "" && edit_title != "null") {
         task_h2.innerText = edit_title
